@@ -38,7 +38,7 @@ library(tidyr)
 ```
 # Load the dataset
 ```{r}
-df <- read.csv("F:/MS GIS/3rd sem/geo 511/FINAL PROJECT/FP/final-project-bsatyavs/data/Crime_data.csv", stringsAsFactors = FALSE)
+df <- read.csv("data/data.csv", stringsAsFactors = FALSE)
 ```
 
 # View the first few rows of the dataset
