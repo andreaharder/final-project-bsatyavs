@@ -2,8 +2,29 @@
 title: "About"
 ---
 
-About this site
+Crime dataset
 
-```{r}
-1 + 1
-```
+The dataset consists of 1,036,438 entries and 22 columns, representing crime incidents over time. Key columns include:
+
+ID: Unique identifier for each incident.
+
+Case Number: Specific case identifier.
+
+Date: Date of the crime.
+
+Primary Type: Categorization of the crime (e.g., theft, assault).
+
+Description: Detailed description of the crime.
+
+Location Description: Information about where the crime occurred (with some missing values).
+
+Arrest: Indicates whether an arrest was made (boolean).
+
+Domestic: Indicates if the crime was domestic (boolean).
+
+Year: The year the crime occurred.
+
+Geographical Coordinates: Latitude and longitude data for mapping the crime locations.
+
+The dataset also contains several columns with missing values, notably in Location Description, Ward, Community Area, and geographical coordinates. This information can be used for statistical analysis, trend identification, and understanding crime patterns over time and across different locations.
+

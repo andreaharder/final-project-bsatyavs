@@ -1,120 +1,102 @@
 ---
-title: "My Final Project Template"
-author: Your name here
-subtitle: Subtitle here if desired
-date: today
+title: "Crime Trend and Spatial Analysis in Chicago (2010 - 2023)"
+author: Satya
+
+date: Oct 22, 2024
 date-format: long
 ---
 
 # Introduction
 
-\[\~ 200 words\]
+# Welcome to the Crime Analysis Project
+This website presents a detailed analysis of crime trends and spatial distributions in Chicago from 2010 to 2023.
 
-Clearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way. Include figures if you like.
+# Materials and methods implemented
 
-# Materials and methods
+Data Cleaning and Preparation
+I am using the dplyr and tidyr packages in R Studio to clean and organize the dataset, removing any inconsistencies or missing values to ensure data accuracy.
 
-\[\~ 200 words\]
+Time-Series Analysis
+I am leveraging ggplot2 to plot trends in crime rates over time, analyzing how crime levels are evolving throughout the study period.
 
-Narrative: Clear narrative description of the data sources and methods. Includes data from at least two sources that were integrated / merged in R.
+Spatial Analysis
+Using the sf package, I am mapping crime locations to visualize their spatial distribution across Chicago's neighborhoods, helping to identify patterns and areas of concern.
 
-Code: The code associated with the project is well organized and easy to follow. Demonstrates mastery of R graphics and functions.
+Cluster Analysis
+I am applying clustering techniques to identify crime hotspots and determine whether certain crime types are showing spatial concentrations in specific regions of the city.
 
-Data: The underlying data are publicly accessible via the web and downloaded/accessed within the Rmd script. If you want to use your own data, you must make it available on a website (e.g. Figshare) so that others are able to re-run your code.
+Predictive Modeling
+I am using machine learning techniques, such as caret and randomForest, to build models that predict crime occurrences based on time and location, providing insights for crime prevention strategies.
 
-You can do bullets like this:
+Required packages:
 
--   The first most important thing
--   The second most important thing
--   The third most important thing
-
-You can do numbers like this:
-
-1.  The first most important thing
-2.  The second most important thing
-3.  The third most important thing
-
-See <http://rmarkdown.rstudio.com/> for all the amazing things you can do.
-
-Here's my first code chunk.
+# Load necessary libraries
 
 ```{r}
-x=3+4
+library(dplyr)
+library(tidyr)
 ```
-
-Refer to output in your narrative like this: x=`r x` .
-
-Load any required packages in a code chunk (you may need to install some packages):
-
-```{r, message=F, warning=F}
-library(tidyverse)
-library(leaflet)
-library(kableExtra)
-library(htmlwidgets)
-library(widgetframe)
-knitr::opts_chunk$set(widgetframe_widgets_dir = 'widgets' ) 
-knitr::opts_chunk$set(cache=TRUE)  # cache the results for quick compiling
-```
-
-## Download and clean all required data
-
+# Load the dataset
 ```{r}
-n=20
-data=data.frame(x=runif(n,-180,180),
-                y=runif(n,-60,60),
-                size = runif(n, 5, 20),
-                category = factor(
-                  sample(letters[1:5], n, replace = TRUE)
-                  ),
-                value = rnorm(n))
+df <- read.csv("F:/MS GIS/3rd sem/geo 511/FINAL PROJECT/FP/final-project-bsatyavs/data/Crime_data.csv", stringsAsFactors = FALSE)
 ```
 
-```{r, results='asis'}
-data %>% 
-  slice(1:10) %>% #show only 1:n rows
-  kable(digits=2,align="c")%>% #make table and round to two digits
-  kable_styling(bootstrap_options = 
-                  c("striped", "hover", "condensed", "responsive")) #apply other formatting
+# View the first few rows of the dataset
+```{r}
+head(df)
 ```
 
-Add any additional processing steps here.
+# Drop duplicate rows
+```{r}
+df <- df %>% distinct()
+```
+
+# Remove rows with any missing values
+```{r}
+df <- df %>% drop_na()
+```
+# Identify and clean inconsistent values (example: convert character columns to lowercase)
+```{r}
+df <- df %>% mutate_if(is.character, tolower)
+```
+
+# Replace any incorrect or placeholder values like "NA" or "unknown" with NA
+```{r}
+df <- df %>%
+  mutate(across(where(is.character), ~ na_if(., "NA"))) %>%
+  mutate(across(where(is.character), ~na_if(., "unknown")))
+```
+
+# Re-check for missing values and inconsistencies
+```{r}
+summary(df)
+```
+
 
 # Results
 
-\[\~200 words\]
-
-Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.
-
-Show tables, plots, etc. and describe them.
-
-```{r, fig.width=6, fig.height=3, fig.cap="Map of completely random data"}
-m <- leaflet(data) %>% 
-  addTiles() %>% 
-  addCircleMarkers(~x, ~y, radius = ~size,color = ~as.factor(category)) %>% 
-  addPopups(~x[2], ~y[2], "Random popup")
-m  # a map with the default OSM tile layer
-```
+The below bar plot presents an analysis of the distribution of different types of crimes in the dataset. The aim is to visualize the frequency of each crime type to identify trends and understand which types of crimes are most prevalent.
 
 ```{r}
-data %>% 
-  ggplot(aes(x=x,y=y,col=category))+
-  geom_point()
+library(ggplot2)
+
+# Create a histogram of the Year column
+ggplot(df, aes(x = Year)) +
+  geom_histogram(binwidth = 1, fill = "beige", color = "black", alpha = 0.7) +
+  labs(title = "Distribution of Crimes by Year", x = "Year", y = "Frequency") +
+  theme_minimal()
+
 ```
 
-### Dygraphs Example
-
-```{r}
-library(dygraphs)
-dygraph(nhtemp, main = "New Haven Temperatures") |> 
-  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01")) 
-```
 
 # Conclusions
 
-\[\~200 words\]
+The histogram of crime distribution by year highlights trends in criminal activity, aiding law enforcement in resource allocation and community safety initiatives. It underscores the influence of external factors on crime fluctuations and sets the stage for further research into specific crime types and their underlying causes.
 
-Clear summary adequately describing the results and putting them in context. Discussion of further questions and ways to continue investigation.
+The further project work includes the time series analysis, spatial analysis, cluster analysis, and prediction analysis. 
 
 # References
 
-All sources are cited in a consistent manner
+1. Chicago Crime map: https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-06-13/index.html
+2. NYC Crime Map: https://data.cityofnewyork.us/Public-Safety/Crime-Map-/5jvd-shfj
+3. LA Crime Analysis:https://crimegrade.org/violent-crime-los-angeles-ca/
