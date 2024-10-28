@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your name here">
+<meta name="author" content="Satya">
 <meta name="dcterms.date" content="2024-10-22">
 
-<title>My Final Project Template – GEO511_FinalProject</title>
+<title>Crime Trend and Spatial Analysis in Chicago (2010 - 2023)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,25 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<link href="site_libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="site_libs/dygraphs-1.1.1/dygraph-combined.js"></script>
-<script src="site_libs/dygraphs-1.1.1/shapes.js"></script>
-<script src="site_libs/moment-2.8.4/moment.js"></script>
-<script src="site_libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
-<script src="site_libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
-<script src="site_libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
 
 
 </head>
@@ -133,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">GEO511_FinalProject</span>
+    <span class="navbar-title">Crime Trend and Spatial Analysis in Chicago (2010 - 2023)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -167,8 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Final Project Template</h1>
-<p class="subtitle lead">Subtitle here if desired</p>
+<h1 class="title">Crime Trend and Spatial Analysis in Chicago (2010 - 2023)</h1>
 </div>
 
 
@@ -178,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Your name here </p>
+             <p>Satya </p>
           </div>
   </div>
     
@@ -199,200 +179,191 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>[~ 200 words]</p>
-<p>Clearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way. Include figures if you like.</p>
 </section>
-<section id="materials-and-methods" class="level1">
-<h1>Materials and methods</h1>
-<p>[~ 200 words]</p>
-<p>Narrative: Clear narrative description of the data sources and methods. Includes data from at least two sources that were integrated / merged in R.</p>
-<p>Code: The code associated with the project is well organized and easy to follow. Demonstrates mastery of R graphics and functions.</p>
-<p>Data: The underlying data are publicly accessible via the web and downloaded/accessed within the Rmd script. If you want to use your own data, you must make it available on a website (e.g.&nbsp;Figshare) so that others are able to re-run your code.</p>
-<p>You can do bullets like this:</p>
-<ul>
-<li>The first most important thing</li>
-<li>The second most important thing</li>
-<li>The third most important thing</li>
-</ul>
-<p>You can do numbers like this:</p>
-<ol type="1">
-<li>The first most important thing</li>
-<li>The second most important thing</li>
-<li>The third most important thing</li>
-</ol>
-<p>See <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a> for all the amazing things you can do.</p>
-<p>Here’s my first code chunk.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">3</span><span class="sc">+</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Refer to output in your narrative like this: x=7 .</p>
-<p>Load any required packages in a code chunk (you may need to install some packages):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(widgetframe)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">widgetframe_widgets_dir =</span> <span class="st">'widgets'</span> ) </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache=</span><span class="cn">TRUE</span>)  <span class="co"># cache the results for quick compiling</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="download-and-clean-all-required-data" class="level2">
-<h2 class="anchored" data-anchor-id="download-and-clean-all-required-data">Download and clean all required data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">20</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(n,<span class="sc">-</span><span class="dv">180</span>,<span class="dv">180</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">y=</span><span class="fu">runif</span>(n,<span class="sc">-</span><span class="dv">60</span>,<span class="dv">60</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="fu">runif</span>(n, <span class="dv">5</span>, <span class="dv">20</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">category =</span> <span class="fu">factor</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                  ),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">value =</span> <span class="fu">rnorm</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="co">#show only 1:n rows</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>,<span class="at">align=</span><span class="st">"c"</span>)<span class="sc">%&gt;%</span> <span class="co">#make table and round to two digits</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>)) <span class="co">#apply other formatting</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">x</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">y</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">size</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">category</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">-28.27</td>
-<td style="text-align: center;">-26.21</td>
-<td style="text-align: center;">12.35</td>
-<td style="text-align: center;">d</td>
-<td style="text-align: center;">-0.56</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">18.18</td>
-<td style="text-align: center;">13.02</td>
-<td style="text-align: center;">15.99</td>
-<td style="text-align: center;">c</td>
-<td style="text-align: center;">-0.64</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-128.26</td>
-<td style="text-align: center;">17.92</td>
-<td style="text-align: center;">19.90</td>
-<td style="text-align: center;">e</td>
-<td style="text-align: center;">1.49</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-48.02</td>
-<td style="text-align: center;">-35.81</td>
-<td style="text-align: center;">17.05</td>
-<td style="text-align: center;">d</td>
-<td style="text-align: center;">-1.07</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">28.89</td>
-<td style="text-align: center;">29.97</td>
-<td style="text-align: center;">17.20</td>
-<td style="text-align: center;">c</td>
-<td style="text-align: center;">0.08</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">140.66</td>
-<td style="text-align: center;">14.05</td>
-<td style="text-align: center;">7.42</td>
-<td style="text-align: center;">a</td>
-<td style="text-align: center;">0.94</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-161.66</td>
-<td style="text-align: center;">37.49</td>
-<td style="text-align: center;">15.37</td>
-<td style="text-align: center;">b</td>
-<td style="text-align: center;">-0.38</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">73.23</td>
-<td style="text-align: center;">-25.56</td>
-<td style="text-align: center;">19.71</td>
-<td style="text-align: center;">d</td>
-<td style="text-align: center;">-0.23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-158.88</td>
-<td style="text-align: center;">-3.29</td>
-<td style="text-align: center;">16.97</td>
-<td style="text-align: center;">e</td>
-<td style="text-align: center;">-1.87</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">103.06</td>
-<td style="text-align: center;">9.64</td>
-<td style="text-align: center;">10.06</td>
-<td style="text-align: center;">d</td>
-<td style="text-align: center;">1.22</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<p>Add any additional processing steps here.</p>
+<section id="welcome-to-the-crime-analysis-project" class="level1">
+<h1>Welcome to the Crime Analysis Project</h1>
+<p>This website presents a detailed analysis of crime trends and spatial distributions in Chicago from 2010 to 2023.</p>
 </section>
+<section id="materials-and-methods-implemented" class="level1">
+<h1>Materials and methods implemented</h1>
+<p>Data Cleaning and Preparation I am using the dplyr and tidyr packages in R Studio to clean and organize the dataset, removing any inconsistencies or missing values to ensure data accuracy.</p>
+<p>Time-Series Analysis I am leveraging ggplot2 to plot trends in crime rates over time, analyzing how crime levels are evolving throughout the study period.</p>
+<p>Spatial Analysis Using the sf package, I am mapping crime locations to visualize their spatial distribution across Chicago’s neighborhoods, helping to identify patterns and areas of concern.</p>
+<p>Cluster Analysis I am applying clustering techniques to identify crime hotspots and determine whether certain crime types are showing spatial concentrations in specific regions of the city.</p>
+<p>Predictive Modeling I am using machine learning techniques, such as caret and randomForest, to build models that predict crime occurrences based on time and location, providing insights for crime prevention strategies.</p>
+<p>Required packages:</p>
+</section>
+<section id="load-necessary-libraries" class="level1">
+<h1>Load necessary libraries</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-the-dataset" class="level1">
+<h1>Load the dataset</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/data.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="view-the-first-few-rows-of-the-dataset" class="level1">
+<h1>View the first few rows of the dataset</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        ID Case.Number                   Date                    Block IUCR
+1 13190943    JG400635 08/28/2023 06:23:00 AM 027XX N NARRAGANSETT AVE 1320
+2 13192516    JG402535 08/29/2023 01:59:00 PM     014XX N LOCKWOOD AVE 1310
+3 13202216    JG414059 09/06/2023 06:20:00 PM         018XX N LUNA AVE 1310
+4 13202922    JG414619 09/06/2023 06:00:00 PM          014XX E 49TH ST 1320
+5 13201501    JG413395 09/06/2023 01:00:00 AM       082XX S AVALON AVE 1320
+6 13202292    JG412948 09/06/2023 12:40:00 AM      082XX S WOLCOTT AVE 1310
+     Primary.Type Description                   Location.Description Arrest
+1 CRIMINAL DAMAGE  TO VEHICLE PARKING LOT / GARAGE (NON RESIDENTIAL)   true
+2 CRIMINAL DAMAGE TO PROPERTY                              RESIDENCE   true
+3 CRIMINAL DAMAGE TO PROPERTY                                 STREET  false
+4 CRIMINAL DAMAGE  TO VEHICLE                                 STREET  false
+5 CRIMINAL DAMAGE  TO VEHICLE                                 STREET  false
+6 CRIMINAL DAMAGE TO PROPERTY                              RESIDENCE  false
+  Domestic Beat District Ward Community.Area FBI.Code X.Coordinate Y.Coordinate
+1    false 2512       25   36             19       14      1133273      1917606
+2     true 2532       25   37             25       14      1140764      1909050
+3    false 2532       25   37             25       14      1139111      1911573
+4    false  222        2    4             39       14      1186638      1872793
+5    false  411        4    8             45       14      1185975      1850651
+6    false  614        6   17             71       14      1165120      1850031
+  Year             Updated.On Latitude Longitude                      Location
+1 2023 09/14/2023 03:41:59 PM 41.93013 -87.78568   (41.9301323, -87.785676799)
+2 2023 09/14/2023 03:41:59 PM 41.90652 -87.75836 (41.906519104, -87.758359629)
+3 2023 09/14/2023 03:43:09 PM 41.91347 -87.76437 (41.913472752, -87.764370362)
+4 2023 09/14/2023 03:43:09 PM 41.80606 -87.59100 (41.806060798, -87.590999348)
+5 2023 09/14/2023 03:43:09 PM 41.74532 -87.59413  (41.745316916, -87.59412899)
+6 2023 09/14/2023 03:43:09 PM 41.74408 -87.67056 (41.744081763, -87.670562675)</code></pre>
+</div>
+</div>
+</section>
+<section id="drop-duplicate-rows" class="level1">
+<h1>Drop duplicate rows</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="remove-rows-with-any-missing-values" class="level1">
+<h1>Remove rows with any missing values</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="identify-and-clean-inconsistent-values-example-convert-character-columns-to-lowercase" class="level1">
+<h1>Identify and clean inconsistent values (example: convert character columns to lowercase)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character, tolower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="replace-any-incorrect-or-placeholder-values-like-na-or-unknown-with-na" class="level1">
+<h1>Replace any incorrect or placeholder values like “NA” or “unknown” with NA</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span> <span class="fu">na_if</span>(., <span class="st">"NA"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span><span class="fu">na_if</span>(., <span class="st">"unknown"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="re-check-for-missing-values-and-inconsistencies" class="level1">
+<h1>Re-check for missing values and inconsistencies</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       ID           Case.Number            Date              Block          
+ Min.   : 7296923   Length:105227      Length:105227      Length:105227     
+ 1st Qu.: 8854092   Class :character   Class :character   Class :character  
+ Median :10538173   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :10410688                                                           
+ 3rd Qu.:11946536                                                           
+ Max.   :13597427                                                           
+      IUCR      Primary.Type       Description        Location.Description
+ Min.   : 142   Length:105227      Length:105227      Length:105227       
+ 1st Qu.:1310   Class :character   Class :character   Class :character    
+ Median :1310   Mode  :character   Mode  :character   Mode  :character    
+ Mean   :1317                                                             
+ 3rd Qu.:1320                                                             
+ Max.   :5004                                                             
+    Arrest            Domestic              Beat         District    
+ Length:105227      Length:105227      Min.   : 222   Min.   : 2.00  
+ Class :character   Class :character   1st Qu.: 634   1st Qu.: 6.00  
+ Mode  :character   Mode  :character   Median :1014   Median :10.00  
+                                       Mean   :1235   Mean   :12.13  
+                                       3rd Qu.:2212   3rd Qu.:22.00  
+                                       Max.   :2534   Max.   :31.00  
+      Ward       Community.Area    FBI.Code          X.Coordinate    
+ Min.   : 1.00   Min.   : 2.00   Length:105227      Min.   :      0  
+ 1st Qu.:12.00   1st Qu.:25.00   Class :character   1st Qu.:1150328  
+ Median :21.00   Median :44.00   Mode  :character   Median :1163630  
+ Mean   :21.49   Mean   :43.79                      Mean   :1163194  
+ 3rd Qu.:29.00   3rd Qu.:67.00                      3rd Qu.:1174198  
+ Max.   :50.00   Max.   :75.00                      Max.   :1205114  
+  Y.Coordinate          Year       Updated.On           Latitude    
+ Min.   :      0   Min.   :2010   Length:105227      Min.   :36.62  
+ 1st Qu.:1852587   1st Qu.:2012   Class :character   1st Qu.:41.75  
+ Median :1871709   Median :2016   Mode  :character   Median :41.80  
+ Mean   :1877485   Mean   :2016                      Mean   :41.82  
+ 3rd Qu.:1904122   3rd Qu.:2020                      3rd Qu.:41.89  
+ Max.   :1950365   Max.   :2023                      Max.   :42.02  
+   Longitude        Location        
+ Min.   :-91.69   Length:105227     
+ 1st Qu.:-87.72   Class :character  
+ Median :-87.68   Mode  :character  
+ Mean   :-87.68                     
+ 3rd Qu.:-87.64                     
+ Max.   :-87.52                     </code></pre>
+</div>
+</div>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
-<p>[~200 words]</p>
-<p>Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.</p>
-<p>Show tables, plots, etc. and describe them.</p>
+<p>The below bar plot presents an analysis of the distribution of different types of crimes in the dataset. The aim is to visualize the frequency of each crime type to identify trends and understand which types of crimes are most prevalent.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="sc">~</span>x, <span class="sc">~</span>y, <span class="at">radius =</span> <span class="sc">~</span>size,<span class="at">color =</span> <span class="sc">~</span><span class="fu">as.factor</span>(category)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPopups</span>(<span class="sc">~</span>x[<span class="dv">2</span>], <span class="sc">~</span>y[<span class="dv">2</span>], <span class="st">"Random popup"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>m  <span class="co"># a map with the default OSM tile layer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-9582ba4fafebcfc2aa95" style="width:100%;height:325px;"></div>
-<script type="application/json" data-for="htmlwidget-9582ba4fafebcfc2aa95">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[-26.20974730700254,13.01646863110363,17.92429254390299,-35.8130650408566,29.97113646939397,14.04726818203926,37.48613451607525,-25.56381225585938,-3.28913158737123,9.638224001973867,12.74491561576724,36.95889520458877,20.17753302119672,22.01572090387344,45.582189951092,-17.34421695582569,23.12844919972122,-2.624465944245458,57.28168180212379,12.54036644473672],[-28.27082038857043,18.18392436951399,-128.2610818650573,-48.0200295522809,28.89013968408108,140.6637915316969,-161.6638664714992,73.2292786706239,-158.8801873940974,103.0577585007995,40.49899393692613,-136.3853006903082,9.521675789728761,-43.01891799084842,91.75441280007362,-170.3716310486197,-151.9366776477545,-32.09633952006698,119.0779743622988,132.6752995233983],[12.35172683605924,15.98858061828651,19.89874641411006,17.05259108566679,17.2036407131236,7.417546968208626,15.36594648961909,19.70876805018634,16.96837190887891,10.05865920102224,10.23912001168355,6.7069049726706,15.08919884567149,6.525883961003274,9.043373113963753,17.39131740992889,7.451908723451197,5.631923020118847,8.957060521934181,19.5471971470397],null,null,{"interactive":true,"className":"","stroke":true,"color":["d","c","e","d","c","a","b","d","e","d","a","b","d","d","b","e","b","e","e","e"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["d","c","e","d","c","a","b","d","e","d","a","b","d","d","b","e","b","e","e","e"],"fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[13.01646863110363,18.18392436951399,"Random popup",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"className":""}]}],"limits":{"lat":[-35.8130650408566,57.28168180212379],"lng":[-170.3716310486197,140.6637915316969]}},"evals":[],"jsHooks":[]}</script>
-<p>Map of completely random data</p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">col=</span>category))<span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a histogram of the Year column</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"beige"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Crimes by Year"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<section id="dygraphs-example" class="level3">
-<h3 class="anchored" data-anchor-id="dygraphs-example">Dygraphs Example</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dygraphs)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dygraph</span>(nhtemp, <span class="at">main =</span> <span class="st">"New Haven Temperatures"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dyRangeSelector</span>(<span class="at">dateWindow =</span> <span class="fu">c</span>(<span class="st">"1920-01-01"</span>, <span class="st">"1960-01-01"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="dygraphs html-widget html-fill-item" id="htmlwidget-30eb1991d73314c99121" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-30eb1991d73314c99121">{"x":{"attrs":{"title":"New Haven Temperatures","labels":["year","V1"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}},"showRangeSelector":true,"dateWindow":["1920-01-01T00:00:00.000Z","1960-01-01T00:00:00.000Z"],"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"yearly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["1912-01-01T00:00:00.000Z","1913-01-01T00:00:00.000Z","1914-01-01T00:00:00.000Z","1915-01-01T00:00:00.000Z","1916-01-01T00:00:00.000Z","1917-01-01T00:00:00.000Z","1918-01-01T00:00:00.000Z","1919-01-01T00:00:00.000Z","1920-01-01T00:00:00.000Z","1921-01-01T00:00:00.000Z","1922-01-01T00:00:00.000Z","1923-01-01T00:00:00.000Z","1924-01-01T00:00:00.000Z","1925-01-01T00:00:00.000Z","1926-01-01T00:00:00.000Z","1927-01-01T00:00:00.000Z","1928-01-01T00:00:00.000Z","1929-01-01T00:00:00.000Z","1930-01-01T00:00:00.000Z","1931-01-01T00:00:00.000Z","1932-01-01T00:00:00.000Z","1933-01-01T00:00:00.000Z","1934-01-01T00:00:00.000Z","1935-01-01T00:00:00.000Z","1936-01-01T00:00:00.000Z","1937-01-01T00:00:00.000Z","1938-01-01T00:00:00.000Z","1939-01-01T00:00:00.000Z","1940-01-01T00:00:00.000Z","1941-01-01T00:00:00.000Z","1942-01-01T00:00:00.000Z","1943-01-01T00:00:00.000Z","1944-01-01T00:00:00.000Z","1945-01-01T00:00:00.000Z","1946-01-01T00:00:00.000Z","1947-01-01T00:00:00.000Z","1948-01-01T00:00:00.000Z","1949-01-01T00:00:00.000Z","1950-01-01T00:00:00.000Z","1951-01-01T00:00:00.000Z","1952-01-01T00:00:00.000Z","1953-01-01T00:00:00.000Z","1954-01-01T00:00:00.000Z","1955-01-01T00:00:00.000Z","1956-01-01T00:00:00.000Z","1957-01-01T00:00:00.000Z","1958-01-01T00:00:00.000Z","1959-01-01T00:00:00.000Z","1960-01-01T00:00:00.000Z","1961-01-01T00:00:00.000Z","1962-01-01T00:00:00.000Z","1963-01-01T00:00:00.000Z","1964-01-01T00:00:00.000Z","1965-01-01T00:00:00.000Z","1966-01-01T00:00:00.000Z","1967-01-01T00:00:00.000Z","1968-01-01T00:00:00.000Z","1969-01-01T00:00:00.000Z","1970-01-01T00:00:00.000Z","1971-01-01T00:00:00.000Z"],[49.9,52.3,49.4,51.1,49.4,47.9,49.8,50.9,49.3,51.9,50.8,49.6,49.3,50.6,48.4,50.7,50.9,50.6,51.5,52.8,51.8,51.1,49.8,50.2,50.4,51.6,51.8,50.9,48.8,51.7,51,50.6,51.7,51.5,52.1,51.3,51,54,51.4,52.7,53.1,54.6,52,52,50.9,52.6,50.2,52.6,51.6,51.9,50.5,50.9,51.7,51.4,51.7,50.8,51.9,51.8,51.9,53]]},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
-</div>
-</div>
-</section>
 </section>
 <section id="conclusions" class="level1">
 <h1>Conclusions</h1>
-<p>[~200 words]</p>
-<p>Clear summary adequately describing the results and putting them in context. Discussion of further questions and ways to continue investigation.</p>
+<p>The histogram of crime distribution by year highlights trends in criminal activity, aiding law enforcement in resource allocation and community safety initiatives. It underscores the influence of external factors on crime fluctuations and sets the stage for further research into specific crime types and their underlying causes.</p>
+<p>The further project work includes the time series analysis, spatial analysis, cluster analysis, and prediction analysis.</p>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
-<p>All sources are cited in a consistent manner</p>
+<ol type="1">
+<li>Chicago Crime map: https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-06-13/index.html</li>
+<li>NYC Crime Map: https://data.cityofnewyork.us/Public-Safety/Crime-Map-/5jvd-shfj</li>
+<li>LA Crime Analysis:https://crimegrade.org/violent-crime-los-angeles-ca/</li>
+</ol>
 
 
 </section>
