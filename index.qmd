@@ -1,0 +1,253 @@
+---
+title: "Crime Trend and Spatial Analysis in Chicago (2010 - 2023)"
+author: Satya
+
+date: Oct 22, 2024
+date-format: long
+---
+
+# Introduction
+
+# Welcome to the Crime Analysis Project
+This website presents a detailed analysis of crime trends and spatial distributions in Chicago from 2010 to 2023.
+
+# Materials and methods implemented
+
+Data Cleaning and Preparation
+I am using the dplyr and tidyr packages in R Studio to clean and organize the dataset, removing any inconsistencies or missing values to ensure data accuracy.
+
+Time-Series Analysis
+I am leveraging ggplot2 to plot trends in crime rates over time, analyzing how crime levels are evolving throughout the study period.
+
+Spatial Analysis
+Using the sf package, I am mapping crime locations to visualize their spatial distribution across Chicago's neighborhoods, helping to identify patterns and areas of concern.
+
+Cluster Analysis
+I am applying clustering techniques to identify crime hotspots and determine whether certain crime types are showing spatial concentrations in specific regions of the city.
+
+Predictive Modeling
+I am using machine learning techniques, such as caret and randomForest, to build models that predict crime occurrences based on time and location, providing insights for crime prevention strategies.
+
+Required packages:
+
+# Load necessary libraries
+
+```{r}
+library(dplyr)
+library(tidyr)
+```
+# Load the dataset
+```{r}
+df <- read.csv("data/data.csv", stringsAsFactors = FALSE)
+```
+
+# View the first few rows of the dataset
+```{r}
+head(df)
+```
+
+# DATA CLEANING AND PREPERATION
+
+# Dropping duplicate rows
+```{r}
+df <- df %>% distinct()
+```
+
+# Removing rows with any missing values
+```{r}
+df <- df %>% drop_na()
+```
+
+# Identifying and cleaning inconsistent values (example: convert character columns to lowercase)
+```{r}
+df <- df %>% mutate_if(is.character, tolower)
+```
+
+# Replacing any incorrect or placeholder values like "NA" or "unknown" with NA
+```{r}
+df <- df %>%
+  mutate(across(where(is.character), ~ na_if(., "NA"))) %>%
+  mutate(across(where(is.character), ~na_if(., "unknown")))
+```
+
+# Re-checking for missing values and inconsistencies in the data
+```{r}
+summary(df)
+```
+# Barplot
+
+The below bar plot presents an analysis of the distribution of different types of crimes in the dataset. The aim is to visualize the frequency of each crime type to identify trends and understand which types of crimes are most prevalent.
+
+
+```{r}
+library(ggplot2)
+
+# Create a histogram of the Year column
+ggplot(df, aes(x = Year)) +
+  geom_histogram(binwidth = 1, fill = "beige", color = "black", alpha = 0.7) +
+  labs(title = "Distribution of Crimes by Year", x = "Year", y = "Frequency") +
+  theme_minimal()
+
+```
+
+# TIME SERIES ANALYSIS
+
+```{r}
+
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Convert 'Date' column to Date type and extract month-year for aggregation
+df$Date <- as.Date(df$Date, format="%m/%d/%Y %I:%M:%S %p")
+df$Month <- format(df$Date, "%Y-%m")
+
+# Aggregate crime counts by month
+monthly_crime_counts <- df %>%
+  group_by(Month) %>%
+  summarise(Crime_Count = n())
+
+monthly_crime_counts$Month <- as.Date(paste0(monthly_crime_counts$Month, "-01"))
+
+# Plot the time-series data
+ggplot(monthly_crime_counts, aes(x = as.Date(Month), y = Crime_Count)) +
+  geom_line(color = "blue") +
+  labs(title = "Monthly Crime Counts Over Time",
+       x = "Date",
+       y = "Crime Count") +
+  theme_minimal()
+
+```
+
+```{r}
+
+# Extract Year and Month separately
+df$Year <- format(df$Date, "%Y")
+df$Month <- format(df$Date, "%m")
+
+# Aggregate data by Year and Month to calculate monthly crime rates per year
+monthly_crime_rate <- df %>%
+  group_by(Year, Month) %>%
+  summarise(Crime_Count = n()) %>%
+  ungroup()
+
+# Convert Month to a factor to ensure correct ordering on the x-axis
+monthly_crime_rate$Month <- factor(monthly_crime_rate$Month, levels = sprintf("%02d", 1:12), labels = month.abb)
+
+# Plot multiple lines for each year
+ggplot(monthly_crime_rate, aes(x = Month, y = Crime_Count, color = Year, group = Year)) +
+  geom_line(size = 1) +
+  labs(title = "Monthly Crime Rates by Year",
+       x = "Month",
+       y = "Crime Count") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+
+```
+
+# SPATIAL ANALYSIS
+
+```{r}
+
+# Load necessary libraries
+library(sf)
+library(ggplot2)
+library(ggmap)
+
+library(ggmap)
+register_stadiamaps(key = "646b60c3-8bef-49e4-bc52-805e18cdae42")
+
+
+# Convert the data to an sf object with crime location coordinates
+crime_data_sf <- st_as_sf(df, coords = c("Longitude", "Latitude"), crs = 4326, agr = "constant")
+
+# Get a basemap of Chicago using ggmap
+# Ensure you have the ggmap API key for Google Maps if you choose source = "google"
+chicago_map <- get_stadiamap(
+  bbox = c(left = -87.9401, bottom = 41.6445, right = -87.5237, top = 42.0230), 
+  zoom = 11, 
+  maptype = "stamen_terrain"
+)
+
+```
+```{r, fig.width=30, fig.height=28}
+
+# Plot crime locations on the map of Chicago
+
+ggmap(chicago_map) +
+  geom_sf(data = crime_data_sf, inherit.aes = FALSE, color = "red", size = 0.5, alpha = 0.7) +
+  labs(title = "Crime Distribution Across Chicago") +
+  theme_minimal()
+
+
+```
+# CLUSTER ANALYSIS
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(ggmap)
+
+# Assuming your data is already loaded into crime_data
+# Filter to only rows with valid latitude and longitude
+crime_data <- df %>%
+  filter(!is.na(Latitude) & !is.na(Longitude))
+
+# Step 1: Extract only latitude and longitude for clustering
+coords <- crime_data %>%
+  select(Latitude, Longitude)
+
+# Step 2: Perform K-means clustering (choose k as desired)
+set.seed(123)  # Set seed for reproducibility
+k <- 5  # Number of clusters (adjust as needed)
+crime_clusters <- kmeans(coords, centers = k, nstart = 20)
+
+# Add the cluster assignments back to the original data
+crime_data$Cluster <- factor(crime_clusters$cluster)
+
+# Step 3: Get a Stadia map of Chicago
+chicago_map <- get_stadiamap(bbox = c(left = -87.9401, bottom = 41.6445, right = -87.5245, top = 42.0230), 
+                             zoom = 11, maptype = "stamen_terrain")
+
+# Step 4: Plot clusters on the map
+ggmap(chicago_map) +
+  geom_point(data = crime_data, aes(x = Longitude, y = Latitude, color = Cluster), 
+             size = 1.5, alpha = 0.6) +
+  scale_color_brewer(palette = "Set1") +
+  labs(title = "Clustered Crime Locations in Chicago", color = "Cluster") +
+  theme_minimal()
+
+
+```
+The K-means clustering method was used to group crime incidents based on their locations (latitude and longitude). This method divides the data into a set number of clusters (5 clusters in this case). It works by reducing the distance between each crime location and the center of its group, known as the cluster centroid.
+
+The number of clusters (k) was chosen after looking at the data and deciding what made the most sense. Although more clusters might give more detailed information, 5 clusters were chosen to keep it simple and easy to understand.
+
+Areas with more people living in them tend to have more crimes because there are more opportunities for crimes to happen. Clusters near busy places like shopping malls or entertainment areas may have higher crime rates due to the large number of people walking around.
+
+Areas that have poor infrastructure, such as streets without enough lighting or security, might see more crime. The clustering method helps to show these areas clearly.
+
+Police can use these results to focus on high-crime areas, assign officers there, start neighborhood watch programs, or create plans to tackle specific types of crime in each area. City planners can also use this information to improve lighting, safety, and community involvement in areas with more crime.
+
+# Prediction Models
+
+```{r}
+
+
+
+```
+
+# Conclusions
+
+The histogram of crime distribution by year highlights trends in criminal activity, aiding law enforcement in resource allocation and community safety initiatives. It underscores the influence of external factors on crime fluctuations and sets the stage for further research into specific crime types and their underlying causes.
+
+The further project work includes the time series analysis, spatial analysis, cluster analysis, and prediction analysis. 
+
+
+# References
+
+1. Chicago Crime map: https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-06-13/index.html
+2. NYC Crime Map: https://data.cityofnewyork.us/Public-Safety/Crime-Map-/5jvd-shfj
+3. LA Crime Analysis:https://crimegrade.org/violent-crime-los-angeles-ca/
