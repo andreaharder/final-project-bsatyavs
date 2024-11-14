@@ -192,7 +192,7 @@ library(ggmap)
 
 # Assuming your data is already loaded into crime_data
 # Filter to only rows with valid latitude and longitude
-crime_data <- crime_data %>%
+crime_data <- df %>%
   filter(!is.na(Latitude) & !is.na(Longitude))
 
 # Step 1: Extract only latitude and longitude for clustering
@@ -243,8 +243,7 @@ Police can use these results to focus on high-crime areas, assign officers there
 
 The histogram of crime distribution by year highlights trends in criminal activity, aiding law enforcement in resource allocation and community safety initiatives. It underscores the influence of external factors on crime fluctuations and sets the stage for further research into specific crime types and their underlying causes.
 
-The further project work includes the time series analysis, spatial analysis, cluster analysis, and prediction analysis. 
-
+The further project work includes the prediction analysis. 
 
 # References
 
