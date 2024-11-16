@@ -155,7 +155,8 @@ head(df)
 ```{r}
 
 # Load necessary libraries
-install.packages("sf")
+install.packages(c("ggplot2", "ggmap", "sf"))
+
 library(sf)
 library(ggplot2)
 library(ggmap)
