@@ -149,6 +149,10 @@ ggplot(monthly_crime_rate, aes(x = Month, y = Crime_Count, color = Year, group =
 # SPATIAL ANALYSIS
 
 ```{r}
+head(df)
+```
+
+```{r}
 
 # Load necessary libraries
 library(sf)
