@@ -1,7 +1,9 @@
 ---
 title: "Crime Trend and Spatial Analysis in Chicago (2010 - 2023)"
 author: Satya
-
+html: 
+code-fold: true
+code-summary: "Show the code"
 date: Oct 22, 2024
 date-format: long
 ---
